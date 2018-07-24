@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageButton android:id="@+id/stock1" style="@style/TileButton"
+        android:background="@drawable/tile_background"/>
+    <ImageButton android:id="@+id/stock2" style="@style/TileButton"
+        android:background="@drawable/tile_background" />
+    <ImageButton android:id="@+id/stock3" style="@style/TileButton"
+        android:background="@drawable/tile_background" />
+    <ImageButton android:id="@+id/stock4" style="@style/TileButton"
+        android:background="@drawable/tile_background" />
+    <ImageButton android:id="@+id/stock5" style="@style/TileButton"
+        android:background="@drawable/tile_background" />
+    <ImageButton android:id="@+id/stock6" style="@style/TileButton"
+        android:background="@drawable/tile_background" />
+    <ImageButton android:id="@+id/stock7" style="@style/TileButton"
+        android:background="@drawable/tile_background" />
+    <ImageButton android:id="@+id/stock8" style="@style/TileButton"
+        android:background="@drawable/tile_background" />
+    <ImageButton android:id="@+id/stock9" style="@style/TileButton"
+        android:background="@drawable/tile_background" />
+
+    <ImageButton android:id="@+id/revert_button" style="@style/TileButton"
+        android:src="@drawable/undo" />
+</LinearLayout>
