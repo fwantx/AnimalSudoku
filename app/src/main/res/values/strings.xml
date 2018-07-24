@@ -9,7 +9,7 @@
     <string name="restart_label">Restart</string>
     <string name="main_menu_label">Main Menu</string>
     <string name="declare_winner">%1$s is the winner</string>
-    <string name="continue_label">Continue</string>
+    <string name="progress_label">Progress</string>
     <string name="new_game_label">New Game</string>
     <string name="ok_label">OK</string>
 
