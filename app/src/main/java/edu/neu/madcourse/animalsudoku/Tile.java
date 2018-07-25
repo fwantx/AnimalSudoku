@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class Tile {
-    private final GameActivity mGame;
     private View mView;
     private Tile mSubTiles[];
 
@@ -28,8 +27,7 @@ public class Tile {
     private static final int LEVEL_NUMBER_SELECTED = 4;
     private static final int LEVEL_NUMBER_NOT_SELECTED = 5;
 
-    public Tile(GameActivity game, int number, status status) {
-        this.mGame = game;
+    public Tile(int number, status status) {
         this.number = number;
         this.status = status;
     }

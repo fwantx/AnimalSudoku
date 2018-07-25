@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         View newButton = findViewById(R.id.new_button);
-        View continueButton = findViewById(R.id.continue_button);
+        View progressButton = findViewById(R.id.progress_button);
         View aboutButton = findViewById(R.id.about_button);
         View ackButton = findViewById(R.id.acknowledgement_button);
         View tutorialButton = findViewById(R.id.tutorial_button);
@@ -30,12 +30,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        continueButton.setOnClickListener(new View.OnClickListener() {
+        progressButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), GameActivity.class);
-//                intent.putExtra(GameActivity.KEY_RESTORE, true);
-//                getActivity().startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, ProgressActivity.class);
+                startActivity(intent);
             }
         });
         aboutButton.setOnClickListener(new View.OnClickListener() {

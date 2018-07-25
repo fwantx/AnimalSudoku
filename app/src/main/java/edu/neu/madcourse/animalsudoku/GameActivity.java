@@ -3,6 +3,7 @@ package edu.neu.madcourse.animalsudoku;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -96,18 +97,18 @@ public class GameActivity extends AppCompatActivity {
 
     private void initGame() {
         String puzzle = getPuzzle();
-        mEntireBoard = new Tile(this, 0, Tile.status.LOCKED);
+        mEntireBoard = new Tile(0, Tile.status.LOCKED);
         // Create all the tiles
         for (int large = 0; large < puzzleSize; large++) {
-            mLargeTiles[large] = new Tile(this, 0, Tile.status.LOCKED);
+            mLargeTiles[large] = new Tile(0, Tile.status.LOCKED);
             for (int small = 0; small < puzzleSize; small++) {
                 int number = puzzle.charAt(large * puzzleSize + small) - '0';
                 // if number is 0, then it's empty, need to fill
                 // if number is not empty, set 1 ~ 9 for Zoo, 10 ~ 18 for aquarium, 19 ~ 27 for bird habitat
                 if (number == 0) {
-                    mSmallTiles[large][small] = new Tile(this, number, Tile.status.AVAILABLE);
+                    mSmallTiles[large][small] = new Tile(number, Tile.status.AVAILABLE);
                 } else {
-                    mSmallTiles[large][small] = new Tile(this, number + theme * 9, Tile.status.LOCKED);
+                    mSmallTiles[large][small] = new Tile(number + theme * 9, Tile.status.LOCKED);
                 }
             }
             mLargeTiles[large].setSubTiles(mSmallTiles[large]);
@@ -118,7 +119,7 @@ public class GameActivity extends AppCompatActivity {
         // 1 ~ 9 for Zoo, 10 ~ 18 for aquarium, 19 ~ 27 for bird habitat
         stockTiles = new Tile[puzzleSize];
         for (int i = 0; i < puzzleSize; i++) {
-            stockTiles[i] = new Tile(this, i + 1 + theme * 9, Tile.status.NUMBER_NOT_SELECTED);
+            stockTiles[i] = new Tile(i + 1 + theme * 9, Tile.status.NUMBER_NOT_SELECTED);
         }
 
         currentNumber = 0;
@@ -163,6 +164,14 @@ public class GameActivity extends AppCompatActivity {
                                 operatedTile.setStatus(Tile.status.FILLED_PASS);
 
                                 if (checkPass()) {
+                                    // Update progress
+                                    SharedPreferences sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    String key = theme + "_" + difficulty;
+                                    editor.putInt(key, sharedPreferences.getInt(key, 0) + 1);
+                                    editor.commit();
+
+                                    // Popup success screen
                                     AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
                                     LayoutInflater inflater = getLayoutInflater();
                                     builder.setView(inflater.inflate(R.layout.finish_game, null));

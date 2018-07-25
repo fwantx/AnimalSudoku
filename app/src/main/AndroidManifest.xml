@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.neu.madcourse.animalsudoku">
 
+    <!-- android:screenOrientation="landscape" -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,8 +21,11 @@
             android:name=".MapActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".GameActivity" />
+            android:name=".ProgressActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".GameActivity"
+            android:parentActivityName=".MapActivity" />
     </application>
 
-    <!--android:screenOrientation="landscape"-->
 </manifest>

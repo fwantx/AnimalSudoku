@@ -12,9 +12,11 @@ DONE:
   - Games has 3 theme: Zoo, Aquarium, Bird Habitat buttons
   - Replace icon_1 ~ icon_27 with our customized icons (1 ~ 9 for zoo, 10 ~ 18 for aquarium, 19 ~ 27 for bird)
   - Replace background_1 ~ background_3 with our customized background
+- Tracking progress
+  - ProgressActivity shows if a theme or animal is unlocked
+  - MapActivity locks themes and 9x9 according to progress
   
  TODO:
-- Tracking progress
 - Replace icons/images with our customization
 - Better styles for UI
 - Add timer to game
